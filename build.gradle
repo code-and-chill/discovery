@@ -1,0 +1,62 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("io.micronaut.application") version "1.2.0"
+}
+
+version = "0.1"
+group = "id.raidnav.products.eureka"
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+micronaut {
+    runtime("jetty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("com.example.*")
+    }
+}
+
+dependencies {
+    annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
+    annotationProcessor("io.micronaut.security:micronaut-security-annotations")
+    implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut:micronaut-runtime")
+    implementation("javax.annotation:javax.annotation-api")
+    implementation("io.micronaut:micronaut-http-client")
+    compileOnly("org.projectlombok:lombok")
+    implementation("io.micronaut:micronaut-management")
+    implementation("io.micronaut:micronaut-discovery-client")
+    implementation("io.micronaut.micrometer:micronaut-micrometer-core")
+    implementation("io.micronaut.micrometer:micronaut-micrometer-registry-new-relic")
+    implementation("io.micronaut.netflix:micronaut-netflix-hystrix")
+    implementation("io.micronaut.netflix:micronaut-netflix-ribbon")
+    implementation("io.micronaut:micronaut-tracing")
+    runtimeOnly("io.jaegertracing:jaeger-thrift")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation("io.micronaut.security:micronaut-security-jwt")
+    implementation("io.micronaut.elasticsearch:micronaut-elasticsearch")
+    implementation("io.micronaut.graphql:micronaut-graphql")
+    implementation("io.micronaut.gcp:micronaut-gcp-pubsub")
+    implementation("io.micronaut.kafka:micronaut-kafka")
+    runtimeOnly("org.slf4j:slf4j-simple")
+    runtimeOnly("com.h2database:h2")
+}
+
+
+application {
+    mainClass.set("id.raidnav.products.eureka.Application")
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("8")
+    targetCompatibility = JavaVersion.toVersion("8")
+}
+
+
+
