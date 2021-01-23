@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Product {
+public class Price {
 
-    private Long id;
-    private ProductType type;
-    private Object detail;
+    private String name;
+    private String description;
+    private Double amount;
 }

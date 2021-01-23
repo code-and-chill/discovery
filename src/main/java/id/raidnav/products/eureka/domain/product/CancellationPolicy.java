@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class Product {
+public class CancellationPolicy {
 
-    private Long id;
-    private ProductType type;
-    private Object detail;
+    private String description;
+    private Integer hour;
+    private String type;
+    private Double amount;
 }
+

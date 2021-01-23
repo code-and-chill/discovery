@@ -2,15 +2,24 @@ package id.raidnav.products.eureka.domain.booking;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class Booking<T> {
+@Entity
+public class Booking {
 
-    private final Long id;
-    private final String userId;
-    private final List<BookingDetail<T>> details;
+    @Id
+    private Long id;
+    private String username;
+    private String details;
+    private BookingStatus status;
+    private String additionalBookingDetail;
+    private DateTime createdAt;
 }
 

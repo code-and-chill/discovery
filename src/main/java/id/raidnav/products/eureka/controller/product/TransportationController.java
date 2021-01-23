@@ -1,6 +1,6 @@
-package id.raidnav.products.eureka.controller;
+package id.raidnav.products.eureka.controller.product;
 
-import id.raidnav.products.eureka.domain.product.Product;
+import id.raidnav.products.eureka.domain.product.experience.Experience;
 import id.raidnav.products.eureka.repository.ProductRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
@@ -18,30 +18,30 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Validated
-@Controller("/products")
-public class ProductController {
+@Controller("/products/transportations")
+public class TransportationController {
 
     @Inject
     private ProductRepository productRepository;
 
     @Post()
-    public HttpResponse<?> saveProduct(@Body @Valid Product product) {
-        this.productRepository.createProduct(product);
-        return HttpResponse.status(HttpStatus.CREATED).body(product);
+    public HttpResponse<?> saveProduct(@Body @Valid Experience experience) {
+        this.productRepository.createProduct(experience);
+        return HttpResponse.status(HttpStatus.CREATED).body(experience);
     }
 
     @Get(value = "?type={type}&page={page}&limit={limit}")
     public HttpResponse<?> getProducts(@PathVariable(value = "type") String type,
                                        @PathVariable(value = "page") int page,
                                        @PathVariable(value = "limit") int limit) {
-        List<Product> products = this.productRepository.getProducts(type, page, limit);
-        return HttpResponse.status(HttpStatus.OK).body(products);
+        List<Experience> experiences = this.productRepository.getProducts(type, page, limit);
+        return HttpResponse.status(HttpStatus.OK).body(experiences);
     }
 
     @Put("/{id}")
-    public HttpResponse<?> updateProduct(@PathVariable(value = "id") String id, @Body @Valid Product product) {
-        this.productRepository.updateProduct(id, product);
-        return HttpResponse.status(HttpStatus.ACCEPTED).body(product);
+    public HttpResponse<?> updateProduct(@PathVariable(value = "id") String id, @Body @Valid Experience experience) {
+        this.productRepository.updateProduct(id, experience);
+        return HttpResponse.status(HttpStatus.ACCEPTED).body(experience);
     }
 
     @Delete("/{id}")

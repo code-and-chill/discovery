@@ -1,21 +1,21 @@
 package id.raidnav.products.eureka.repository;
 
-import id.raidnav.products.eureka.domain.product.Product;
+import id.raidnav.products.eureka.domain.product.experience.Experience;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository {
 
-    public List<Product> getProducts(String type, int page, int limit) {
+    public List<Experience> getProducts(String type, int page, int limit) {
         return new ArrayList<>();
     }
 
-    public void createProduct(Product product) {
+    public void createProduct(Experience experience) {
 
     }
 
-    public void updateProduct(String id, Product product) {
+    public void updateProduct(String id, Experience experience) {
 
     }
 
