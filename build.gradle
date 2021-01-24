@@ -6,6 +6,8 @@ plugins {
 version = "0.1"
 group = "id.raidnav.products.eureka"
 
+apply plugin: 'jacoco'
+
 repositories {
     mavenCentral()
     jcenter()
@@ -64,5 +66,11 @@ java {
     targetCompatibility = JavaVersion.toVersion("8")
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
 
 
