@@ -1,17 +1,14 @@
 package id.raidnav.products.eureka.domain.product;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-public class CancellationPolicy {
+import java.io.Serializable;
 
-    private String description;
-    private Integer hour;
-    private String type;
-    private Double amount;
+@Data
+public class CancellationPolicy implements Serializable {
+  private String description;
+  private Integer hour;
+  private String type;
+  private Double amount;
 }
 

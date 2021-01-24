@@ -1,21 +1,19 @@
 package id.raidnav.products.eureka.domain.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@AllArgsConstructor
-@Getter
-public class Identity {
-
-    private final String type;
-    private final String number;
-    private final String title;
-    private final String firstName;
-    private final String midName;
-    private final String lastName;
-    private final Date availabilityDate;
-    private final List<String> photoUrls;
+@Data
+public class Identity implements Serializable {
+  private String type;
+  private String number;
+  private String title;
+  private String firstName;
+  private String midName;
+  private String lastName;
+  private Date availabilityDate;
+  private List<String> photoUrls;
 }

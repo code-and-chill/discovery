@@ -1,4 +1,4 @@
-package id.raidnav.products.eureka.domain.payment;
+package id.raidnav.products.eureka.domain.booking;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-public class PaymentDetail implements Serializable {
+public class BookingReversal implements Serializable {
   @Id
   private Long id;
 }

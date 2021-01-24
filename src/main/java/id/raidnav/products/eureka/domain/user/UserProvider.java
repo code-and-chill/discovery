@@ -1,17 +1,14 @@
 package id.raidnav.products.eureka.domain.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
+@Data
 @Entity
-public class AccountProvider {
+public class UserProvider implements Serializable {
   @Id
   private String id;
   private String name;

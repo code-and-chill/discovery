@@ -1,6 +1,5 @@
 package id.raidnav.products.eureka.repository;
 
-
 import id.raidnav.products.eureka.domain.booking.Booking;
 import io.micronaut.data.annotation.Query;
 import io.micronaut.data.annotation.Repository;

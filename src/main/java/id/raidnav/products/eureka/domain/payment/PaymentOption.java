@@ -1,16 +1,18 @@
 package id.raidnav.products.eureka.domain.payment;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
-@AllArgsConstructor
-@Getter
-public class PaymentOption {
-
-    private final String provider;
-    private final String number;
-    private final Date expirationDate;
-
+@Data
+@Entity
+public class PaymentOption implements Serializable {
+  @Id
+  private Long id;
+  private String provider;
+  private String number;
+  private Date expirationDate;
 }

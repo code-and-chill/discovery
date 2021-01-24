@@ -1,13 +1,12 @@
 package id.raidnav.products.eureka.domain.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@AllArgsConstructor
-@Getter
-public class ContentPreference {
+import java.io.Serializable;
 
-    private final String country;
-    private final String currency;
-    private final String language;
+@Data
+public class ContentPreference implements Serializable {
+  private String country;
+  private String currency;
+  private String language;
 }

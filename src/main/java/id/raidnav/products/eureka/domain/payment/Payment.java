@@ -1,14 +1,19 @@
 package id.raidnav.products.eureka.domain.payment;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@AllArgsConstructor
-@Getter
-public class Payment {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import java.io.Serializable;
 
-    private final Long id;
-    private final Double amount;
-    private final PaymentDetail details;
+@Data
+@Entity
+public class Payment implements Serializable {
+  @Id
+  private Long id;
+  private Double amount;
+  @OneToOne
+  private PaymentDetail details;
 }
 

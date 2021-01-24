@@ -1,10 +1,8 @@
 package id.raidnav.products.eureka.domain.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@AllArgsConstructor
-@Getter
+@Data
 public class PushNotification {
 
 }

@@ -1,11 +1,8 @@
 package id.raidnav.products.eureka.service.booking;
 
 import id.raidnav.products.eureka.domain.booking.Booking;
-import id.raidnav.products.eureka.domain.booking.request.CreateBookingSpec;
 import id.raidnav.products.eureka.exception.DataNotFoundException;
-import id.raidnav.products.eureka.exception.UnsupportedTypeException;
 import id.raidnav.products.eureka.repository.BookingRepository;
-import id.raidnav.products.eureka.service.booking.transportation.TransportationBookingService;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 
@@ -32,19 +29,20 @@ public class BookingService {
   private BookingRepository bookingRepository;
 
 
-  public Booking createBooking(CreateBookingSpec spec) throws Exception {
-    switch (spec.getBookingType()) {
-      case TRANSPORTATION:
-        return transportationService.create();
-      case ACCOMMODATION:
-        return accommodationService.create();
-      case EXPERIENCE:
-        return experienceService.create();
-      case FINANCIAL:
-        return financialService.create();
-      default:
-        throw new UnsupportedTypeException("");
-    }
+  public Booking createBooking(Object spec) {
+//    switch (spec.getBookingType()) {
+//      case TRANSPORTATION:
+//        return transportationService.create();
+//      case ACCOMMODATION:
+//        return accommodationService.create();
+//      case EXPERIENCE:
+//        return experienceService.create();
+//      case FINANCIAL:
+//        return financialService.create();
+//      default:
+//        throw new UnsupportedTypeException("");
+//    }
+    return null;
   }
 
   public Booking getBooking(Long id) throws Exception {

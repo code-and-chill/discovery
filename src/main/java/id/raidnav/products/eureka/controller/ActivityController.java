@@ -16,13 +16,13 @@ import javax.validation.Valid;
 @Controller("/activities")
 public class ActivityController {
 
-    @Post()
-    public HttpResponse<?> saveActivity(@Body @Valid Activity activity) {
-        return HttpResponse.status(HttpStatus.CREATED).body(activity);
-    }
+  @Post()
+  public HttpResponse<?> saveActivity(@Body @Valid Activity activity) {
+    return HttpResponse.status(HttpStatus.CREATED).body(activity);
+  }
 
-    @Get(value = "/{id}")
-    public HttpResponse<?> getActivity(@PathVariable(value = "id") Long id) {
-        return HttpResponse.status(HttpStatus.OK).body(id);
-    }
+  @Get(value = "/{id}")
+  public HttpResponse<?> getActivity(@PathVariable(value = "id") Long id) {
+    return HttpResponse.status(HttpStatus.OK).body(id);
+  }
 }

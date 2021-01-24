@@ -1,21 +1,17 @@
 package id.raidnav.products.eureka.domain.product;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
+import org.joda.time.DateTime;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import java.io.Serializable;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Entity
-@Table(name = "price")
-public class Price {
-    @EmbeddedId
-    private PriceKey priceKey;
-    private String description;
-    private Double amount;
+@Data
+public class Price implements Serializable {
+  private Long productId;
+  private String description;
+  @Min(0)
+  private Double amount;
+  private DateTime createdAt;
+  private DateTime updatedAt;
 }

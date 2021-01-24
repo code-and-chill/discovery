@@ -1,22 +1,7 @@
 package id.raidnav.products.eureka.repository;
 
-import id.raidnav.products.eureka.domain.user.User;
+import id.raidnav.products.eureka.domain.user.Account;
+import io.micronaut.data.repository.CrudRepository;
 
-public class UserRepository {
-
-    public User getUser(String name) {
-        return null;
-    }
-
-    public void createUser(User User) {
-
-    }
-
-    public void updateUser(String id, User User) {
-
-    }
-
-    public void deleteUser(String id) {
-
-    }
+public interface UserRepository extends CrudRepository<Account, Long> {
 }

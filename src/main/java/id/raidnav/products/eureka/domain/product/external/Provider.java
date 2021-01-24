@@ -1,13 +1,11 @@
 package id.raidnav.products.eureka.domain.product.external;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-public class Provider {
-    private String id;
-    private String name;
+import java.io.Serializable;
+
+@Data
+public class Provider implements Serializable {
+  private String id;
+  private String name;
 }
