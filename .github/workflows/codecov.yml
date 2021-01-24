@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.15
+      - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
-          java-version: 1.15
+          java-version: 1.8
       - name: check
         run: ./gradlew check
       - name: generate report
