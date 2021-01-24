@@ -30,6 +30,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
 
     implementation("javax.annotation:javax.annotation-api")
+    implementation 'org.joda:joda-money:1.0.1'
 
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-runtime")
@@ -63,8 +64,8 @@ application {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion("8")
-    targetCompatibility = JavaVersion.toVersion("8")
+    sourceCompatibility = JavaVersion.toVersion("15")
+    targetCompatibility = JavaVersion.toVersion("15")
 }
 
 jacocoTestReport {

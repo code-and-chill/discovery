@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/code-and-chill/discovery/branch/master/graph/badge.svg?token=LWYLG9DVLC)](https://codecov.io/gh/code-and-chill/discovery)
+
 ## Feature gcp-pubsub documentation
 
 - [https://cloud.google.com/pubsub/docs](https://cloud.google.com/pubsub/docs)

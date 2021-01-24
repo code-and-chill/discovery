@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import id.raidnav.products.eureka.domain.product.accommodation.Accommodation;
 import id.raidnav.products.eureka.domain.product.experience.Experience;
+import id.raidnav.products.eureka.domain.product.vehicle.ConnectingVehicle;
+import id.raidnav.products.eureka.domain.product.vehicle.Vehicle;
 import lombok.SneakyThrows;
 
 import javax.validation.ConstraintValidator;
@@ -19,7 +21,11 @@ public class ProductValidator implements ConstraintValidator<ProductConstraint, 
   @SneakyThrows
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context) {
-    List<Class<?>> clazz = new ArrayList<>(Arrays.asList(Accommodation.class, Experience.class));
+    List<Class<?>> clazz = new ArrayList<>(Arrays.asList(
+        Accommodation.class,
+        Vehicle.class,
+        ConnectingVehicle.class,
+        Experience.class));
     for (Class<?> c : clazz) {
       try {
         objectMapper.readValue(value, c);

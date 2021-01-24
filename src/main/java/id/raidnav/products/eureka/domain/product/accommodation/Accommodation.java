@@ -1,7 +1,6 @@
 package id.raidnav.products.eureka.domain.product.accommodation;
 
-import id.raidnav.products.eureka.domain.product.CancellationPolicy;
-import id.raidnav.products.eureka.domain.product.Price;
+import id.raidnav.products.eureka.domain.geo.GeoLocation;
 import lombok.Data;
 
 import javax.persistence.ElementCollection;
@@ -21,14 +20,12 @@ public class Accommodation implements Serializable {
     private String description;
     @ElementCollection
     private List<String> imageUrls;
-    private String geoLocation; // TODO: change data type
+    private String city;
+    private String country;
+    private GeoLocation geoLocation;
     private String checkInTime;
     private String checkOutTime;
     @ElementCollection
-    private List<Price> prices;
-    @ElementCollection
     private List<Facility> facilities;
-    @ElementCollection
-    private List<CancellationPolicy> cancellationPolicies;
 }
 
