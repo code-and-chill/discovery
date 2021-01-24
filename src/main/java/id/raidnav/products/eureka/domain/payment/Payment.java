@@ -1,10 +1,10 @@
 package id.raidnav.products.eureka.domain.payment;
 
 import lombok.Data;
+import org.joda.money.Money;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import java.io.Serializable;
 
 @Data
@@ -12,8 +12,6 @@ import java.io.Serializable;
 public class Payment implements Serializable {
   @Id
   private Long id;
-  private Double amount;
-  @OneToOne
-  private PaymentDetail details;
+  private Money amount;
 }
 
