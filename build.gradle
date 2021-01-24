@@ -1,10 +1,13 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "6.1.0"
     id("io.micronaut.application") version "1.2.0"
+    id("jacoco")
 }
 
 version = "0.1"
 group = "id.raidnav.products.eureka"
+
+apply plugin: 'jacoco'
 
 repositories {
     mavenCentral()
@@ -64,5 +67,11 @@ java {
     targetCompatibility = JavaVersion.toVersion("8")
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
 
 
