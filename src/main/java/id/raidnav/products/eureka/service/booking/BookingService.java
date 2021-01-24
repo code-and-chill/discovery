@@ -5,9 +5,6 @@ import id.raidnav.products.eureka.domain.booking.request.CreateBookingSpec;
 import id.raidnav.products.eureka.exception.DataNotFoundException;
 import id.raidnav.products.eureka.exception.UnsupportedTypeException;
 import id.raidnav.products.eureka.repository.BookingRepository;
-import id.raidnav.products.eureka.service.booking.transportation.AccommodationBookingService;
-import id.raidnav.products.eureka.service.booking.transportation.ExperienceBookingService;
-import id.raidnav.products.eureka.service.booking.transportation.FinancialBookingService;
 import id.raidnav.products.eureka.service.booking.transportation.TransportationBookingService;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
@@ -46,7 +43,7 @@ public class BookingService {
       case FINANCIAL:
         return financialService.create();
       default:
-        throw new UnsupportedTypeException();
+        throw new UnsupportedTypeException("");
     }
   }
 
@@ -56,7 +53,7 @@ public class BookingService {
     if (booking.isPresent()) {
       return booking.get();
     }
-    throw new DataNotFoundException();
+    throw new DataNotFoundException("");
   }
 
   public List<Booking> getBookings(String username, DateTime from, DateTime to) {

@@ -2,6 +2,8 @@ package id.raidnav.products.eureka.controller.product;
 
 import id.raidnav.products.eureka.domain.product.experience.Experience;
 import id.raidnav.products.eureka.repository.ProductRepository;
+import io.micronaut.data.model.Page;
+import io.micronaut.data.model.Pageable;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Body;
@@ -26,7 +28,6 @@ public class ExperienceController {
 
     @Post()
     public HttpResponse<?> saveProduct(@Body @Valid Experience experience) {
-        this.productRepository.createProduct(experience);
         return HttpResponse.status(HttpStatus.CREATED).body(experience);
     }
 
@@ -34,19 +35,19 @@ public class ExperienceController {
     public HttpResponse<?> getProducts(@PathVariable(value = "type") String type,
                                        @PathVariable(value = "page") int page,
                                        @PathVariable(value = "limit") int limit) {
-        List<Experience> experiences = this.productRepository.getProducts(type, page, limit);
+        Pageable pagination = Pageable.from(page, limit);
+        Page<Experience> experiences = this.productRepository.getProducts(type, pagination);
         return HttpResponse.status(HttpStatus.OK).body(experiences);
     }
 
     @Put("/{id}")
-    public HttpResponse<?> updateProduct(@PathVariable(value = "id") String id, @Body @Valid Experience experience) {
-        this.productRepository.updateProduct(id, experience);
+    public HttpResponse<?> updateProduct(@PathVariable(value = "id") String id,
+                                         @Body @Valid Experience experience) {
         return HttpResponse.status(HttpStatus.ACCEPTED).body(experience);
     }
 
     @Delete("/{id}")
     public HttpResponse<?> deleteProduct(@PathVariable(value = "id") String id) {
-        this.productRepository.deleteProduct(id);
         return HttpResponse.status(HttpStatus.NO_CONTENT);
     }
 }

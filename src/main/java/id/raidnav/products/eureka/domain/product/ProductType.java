@@ -5,4 +5,5 @@ public enum ProductType {
     TRAIN,
     EXPERIENCE,
     HOTEL,
+    VILLA,
 }

@@ -1,6 +1,8 @@
 package id.raidnav.products.eureka.controller.product;
 
-import id.raidnav.products.eureka.domain.product.experience.Experience;
+import id.raidnav.products.eureka.domain.product.ProductType;
+import id.raidnav.products.eureka.domain.product.accommodation.Accommodation;
+import id.raidnav.products.eureka.exception.UnsupportedTypeException;
 import id.raidnav.products.eureka.repository.ProductRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
@@ -15,7 +17,6 @@ import io.micronaut.validation.Validated;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
-import java.util.List;
 
 @Validated
 @Controller("/products/accommodations")
@@ -25,28 +26,32 @@ public class AccommodationController {
     private ProductRepository productRepository;
 
     @Post()
-    public HttpResponse<?> saveProduct(@Body @Valid Experience experience) {
-        this.productRepository.createProduct(experience);
-        return HttpResponse.status(HttpStatus.CREATED).body(experience);
+    public HttpResponse<?> saveProduct(@Body @Valid Accommodation Accommodation) {
+        return HttpResponse.status(HttpStatus.CREATED).body(Accommodation);
     }
 
     @Get(value = "?type={type}&page={page}&limit={limit}")
-    public HttpResponse<?> getProducts(@PathVariable(value = "type") String type,
+    public HttpResponse<?> getProducts(@PathVariable(value = "type") ProductType type,
                                        @PathVariable(value = "page") int page,
                                        @PathVariable(value = "limit") int limit) {
-        List<Experience> experiences = this.productRepository.getProducts(type, page, limit);
-        return HttpResponse.status(HttpStatus.OK).body(experiences);
+        switch (type) {
+            case HOTEL:
+            case VILLA:
+            default:
+                return HttpResponse
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new UnsupportedTypeException("").getMessage());
+        }
     }
 
     @Put("/{id}")
-    public HttpResponse<?> updateProduct(@PathVariable(value = "id") String id, @Body @Valid Experience experience) {
-        this.productRepository.updateProduct(id, experience);
-        return HttpResponse.status(HttpStatus.ACCEPTED).body(experience);
+    public HttpResponse<?> updateProduct(@PathVariable(value = "id") String id,
+                                         @Body @Valid Accommodation Accommodation) {
+        return HttpResponse.status(HttpStatus.ACCEPTED).body(Accommodation);
     }
 
     @Delete("/{id}")
     public HttpResponse<?> deleteProduct(@PathVariable(value = "id") String id) {
-        this.productRepository.deleteProduct(id);
         return HttpResponse.status(HttpStatus.NO_CONTENT);
     }
 }
