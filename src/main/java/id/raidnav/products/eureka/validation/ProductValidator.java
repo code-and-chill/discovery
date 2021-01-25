@@ -1,5 +1,6 @@
 package id.raidnav.products.eureka.validation;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import id.raidnav.products.eureka.domain.product.accommodation.Accommodation;
@@ -32,6 +33,30 @@ public class ProductValidator implements ConstraintValidator<ProductConstraint, 
         return true;
       } catch (JsonMappingException ignored) {
       }
+    }
+    try {
+      objectMapper.readValue(value, new TypeReference<List<Accommodation>>() {
+      });
+      return true;
+    } catch (JsonMappingException ignored) {
+    }
+    try {
+      objectMapper.readValue(value, new TypeReference<List<Experience>>() {
+      });
+      return true;
+    } catch (JsonMappingException ignored) {
+    }
+    try {
+      objectMapper.readValue(value, new TypeReference<List<Vehicle>>() {
+      });
+      return true;
+    } catch (JsonMappingException ignored) {
+    }
+    try {
+      objectMapper.readValue(value, new TypeReference<List<ConnectingVehicle>>() {
+      });
+      return true;
+    } catch (JsonMappingException ignored) {
     }
     return false;
   }
