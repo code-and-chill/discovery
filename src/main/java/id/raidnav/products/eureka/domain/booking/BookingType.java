@@ -1,7 +1,7 @@
 package id.raidnav.products.eureka.domain.booking;
 
 public enum BookingType {
-    TRANSPORTATION,
+    VEHICLE,
     ACCOMMODATION,
     EXPERIENCE,
     FINANCIAL,

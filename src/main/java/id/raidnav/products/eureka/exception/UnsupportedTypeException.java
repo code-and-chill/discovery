@@ -5,9 +5,8 @@ import lombok.Getter;
 @Getter
 public class UnsupportedTypeException extends Exception {
 
-  private final String message;
+  private final String message = "Unsupported product type";
 
-  public UnsupportedTypeException(String message) {
-    this.message = message;
+  public UnsupportedTypeException() {
   }
 }

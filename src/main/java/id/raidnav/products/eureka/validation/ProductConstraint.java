@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ProductConstraint {
-  String message() default "Invalid booking type";
+  String message() default "Invalid product spec";
   Class<?>[] groups() default {};
   Class<? extends Payload>[] payload() default {};
 }

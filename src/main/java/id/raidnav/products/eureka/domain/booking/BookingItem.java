@@ -11,6 +11,8 @@ import javax.persistence.Id;
 public class BookingItem {
   @Id
   private Long id;
+  private BookingType type;
   @ProductConstraint
-  private String item;
+  private String data;
+  private BookingStatus status;
 }
