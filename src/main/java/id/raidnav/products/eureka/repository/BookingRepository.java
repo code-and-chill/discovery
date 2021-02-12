@@ -1,7 +1,6 @@
 package id.raidnav.products.eureka.repository;
 
 import id.raidnav.products.eureka.domain.booking.Booking;
-import io.lettuce.core.dynamic.annotation.Param;
 import io.micronaut.data.annotation.Query;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.jpa.repository.JpaRepository;
@@ -16,8 +15,5 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
       value = "SELECT b FROM Booking b WHERE b.username = :username AND b.createdAt BETWEEN :from AND :to ORDER BY :pageable",
       countQuery = "SELECT b FROM Booking b WHERE b.username = :username AND b.createdAt BETWEEN :from AND :to"
   )
-  Page<Booking> findByUsername(@Param("username") String username,
-                               @Param("from") DateTime from,
-                               @Param("to") DateTime to,
-                               @Param("pageable") Pageable pageable);
+  Page<Booking> findByUsername(String username, DateTime from, DateTime to, Pageable pageable);
 }
