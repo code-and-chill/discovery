@@ -9,12 +9,14 @@ import id.raidnav.products.eureka.domain.product.vehicle.ConnectingVehicle;
 import id.raidnav.products.eureka.domain.product.vehicle.Vehicle;
 import lombok.SneakyThrows;
 
+import javax.inject.Singleton;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Singleton
 public class ProductValidator implements ConstraintValidator<ProductConstraint, String> {
 
   private final ObjectMapper objectMapper = new ObjectMapper();
@@ -35,27 +37,33 @@ public class ProductValidator implements ConstraintValidator<ProductConstraint, 
       }
     }
     try {
-      objectMapper.readValue(value, new TypeReference<List<Accommodation>>() {
+      List<Accommodation> accommodations = objectMapper.readValue(value, new TypeReference<List<Accommodation>>() {
       });
-      return true;
+      if (accommodations.size() > 0)
+        return true;
     } catch (JsonMappingException ignored) {
     }
     try {
-      objectMapper.readValue(value, new TypeReference<List<Experience>>() {
+      List<Experience> experiences = objectMapper.readValue(value, new TypeReference<List<Experience>>() {
       });
-      return true;
+      if (experiences.size() > 0)
+        return true;
     } catch (JsonMappingException ignored) {
     }
     try {
-      objectMapper.readValue(value, new TypeReference<List<Vehicle>>() {
+      List<Vehicle> vehicles = objectMapper.readValue(value, new TypeReference<List<Vehicle>>() {
       });
-      return true;
+      if (vehicles.size() > 0) {
+        return true;
+      }
     } catch (JsonMappingException ignored) {
     }
     try {
-      objectMapper.readValue(value, new TypeReference<List<ConnectingVehicle>>() {
+      List<ConnectingVehicle> connectingVehicles = objectMapper.readValue(value, new TypeReference<List<ConnectingVehicle>>() {
       });
-      return true;
+      if (connectingVehicles.size() > 0) {
+        return true;
+      }
     } catch (JsonMappingException ignored) {
     }
     return false;
