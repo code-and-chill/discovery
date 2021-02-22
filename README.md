@@ -1,4 +1,5 @@
 [![codecov](https://codecov.io/gh/code-and-chill/discovery/branch/master/graph/badge.svg?token=LWYLG9DVLC)](https://codecov.io/gh/code-and-chill/discovery)
+[![CodeFactor](https://www.codefactor.io/repository/github/code-and-chill/discovery/badge)](https://www.codefactor.io/repository/github/code-and-chill/discovery)
 
 ## Feature gcp-pubsub documentation
 
